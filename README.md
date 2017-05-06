@@ -1,4 +1,4 @@
-# nodeled
+# Node Led Johhny Five Express Project
 simple johnny-five node express project
 1) git clone https://github.com/phptuts/nodeled.git
 2) Open a command line and navigate to where you cloned the project
