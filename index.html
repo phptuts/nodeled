@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Express HTML</title>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div style="margin:100px;">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">Johnny Five Library</a>
+        </div>
+    </nav>
+    <div class="jumbotron"  style="padding:40px;">
+        <h1>Hello Arduino Node!</h1>
+        <p>Click the button to make the led blink. : <span class="label label-default" id="state">I am off :<</span></p>
+        <p><a class="btn btn-primary btn-lg" id="blinkLed" role="button">Blink Me</a></p>
+    </div>
+</div>
+<script>
+    $('#blinkLed').on('click', function () {
+        $.getJSON('http://localhost:3000/blink-led', function (data) {
+            if (data.on) {
+                $('#state').html('I am On :)');
+                $('#state').addClass('label-success');
+                $('#state').removeClass('label-default');
+            }
+            else {
+                $('#state').html('I am off :<');
+                $('#state').removeClass('label-success');
+                $('#state').addClass('label-default');
+            }
+        });
+    });
+</script>
+</body>
+</html>
